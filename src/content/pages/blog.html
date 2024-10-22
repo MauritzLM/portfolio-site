@@ -1,0 +1,37 @@
+---
+title: 'Portfolio Blog Page'
+description: 'Blog page'
+preloadImg: ''
+permalink: 'blog/'
+eleventyNavigation:
+   key: Blog 
+   order: 200
+layout: layouts/base.html
+stylesheet:  ../css/blog.css
+script: ''
+
+---
+
+<h1>Blog page</h1>
+
+{% if collections.post | length == 0 %}
+    <h2>No current posts</h2>
+{% else %}
+   <h2>Latest</h2>
+   <div class="card-container">
+   {%- for post in collections.post | reverse -%}
+     <article>
+    
+      <div class="post-details">
+
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.description }}</p>
+
+          <a href="{{ post.url }}">Continue reading</a>
+
+       </div>
+     
+     </article>
+   {%- endfor -%}
+    </div>
+{% endif %}
