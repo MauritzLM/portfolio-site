@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+  <!-- Standard meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="height=device-height, 
+                      width=device-width, initial-scale=1.0, 
+                      minimum-scale=1.0, maximum-scale=1.0, 
+                      user-scalable=no, target-densitydpi=device-dpi">
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="">
+
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="{{ stylesheet }}">
+    {# <script defer src="/assets/js/nav.js"></script> #}
+
+    <title>
+     {{ title }}
+      </title>
+
+  </head>
+
+  <body>
+
+  <!--Screen reader skip main nav-->
+    <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+
+    {% include "components/header.html" %}
+    <main id="main">
+      {{ content | safe }}
+    </main>
+    {% include "components/footer.html" %}
+
+  </body>
+
+</html>
