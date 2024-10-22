@@ -1,0 +1,28 @@
+<header id="cs-navigation">
+    <!-- LOGO -->
+    
+    <!-- mobile toggle -->
+    <button class="cs-toggle" aria-label="mobile menu toggle">
+        <div class="cs-box" aria-hidden="true">
+            <span class="cs-line cs-line1" aria-hidden="true"></span>
+            <span class="cs-line cs-line2" aria-hidden="true"></span>
+            <span class="cs-line cs-line3" aria-hidden="true"></span>
+        </div>
+    </button>
+
+    <!-- nav links -->
+    <div class="nav-ul-wrapper">
+        <ul aria-expanded="false">
+            {% set navPages = collections.all | eleventyNavigation %}
+            <!-- Loop through all pages with a eleventyNavigation in the frontmatter -->
+            {% for entry in navPages %}
+
+                <li>
+                    <a href="{{entry.url}}" class="{% if entry.url == page.url %} cs-active {% endif %}">{{entry.key}}</a>
+                </li>
+
+            {% endfor %}
+        </ul>
+
+    </div>
+</header>
