@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="/css/root.css">
     <link rel="stylesheet" href="{{ stylesheet }}">
-    {# <script defer src="/assets/js/nav.js"></script> #}
+    <script defer src="/assets/js/nav.js"></script>
 
     <title>
      {{ title }}
@@ -24,7 +24,8 @@
   </head>
 
   <body>
-
+  
+  <div class="container">
   <!--Screen reader skip main nav-->
     <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
 
@@ -33,7 +34,7 @@
       {{ content | safe }}
     </main>
     {% include "components/footer.html" %}
-
+  </div>
   </body>
 
 </html>
