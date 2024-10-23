@@ -2,10 +2,299 @@
 
 /* VARIABLES */
 
-* {
+/* FONTS */
+/* montserrat-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/assets/fonts/fonts/montserrat-v26-latin-regular.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-500 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/assets/fonts/fonts/montserrat-v26-latin-500.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-600 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/assets/fonts/fonts/montserrat-v26-latin-600.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-700 - latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/assets/fonts/fonts/montserrat-v26-latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 100vh;
 }
+
+/* Hidden Screen reader skip nav button */
+.skip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1111111;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* NAV STYLES */
+#cs-navigation {
+    width: 100%;
+    padding: 1em 0;
+    position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo toggle";
+    align-items: center;
+    background-color: #fff;
+    z-index: 1000;
+
+    .nav-logo {
+        grid-area: logo;
+        justify-self: start;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &.cs-active {
+        &:before {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .nav-ul-wrapper {
+            opacity: 1;
+            transform: scaleX(1);
+            transition-delay: 0.2s;
+        }
+    }
+
+    .cs-toggle {
+        /* 44px - 48px */
+        width: clamp(2.75rem, 6vw, 3rem);
+        height: clamp(2.75rem, 6vw, 3rem);
+        // margin: 0 0 0 auto;
+        border-radius: calc(4 / 16 * 1rem);
+        background-color: transparent;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: toggle;
+        justify-self: end;
+    }
+
+    .cs-active {
+        .cs-line1 {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(225deg);
+        }
+
+        .cs-line2 {
+            top: 50%;
+            transform-origin: center;
+            transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
+        }
+
+        .cs-line3 {
+            bottom: 100%;
+            opacity: 0;
+        }
+    }
+
+    .cs-box {
+        /* 24px - 28px */
+        width: clamp(1.5rem, 2vw, 1.75rem);
+        /* 14px - 16px */
+        height: clamp(0.875rem, 1.5vw, 1rem);
+        position: relative;
+    }
+
+    .cs-line {
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #000;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .cs-line1 {
+        top: 0;
+        transform-origin: center;
+        transition: transform 0.5s, top 0.3s, left 0.3s;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+    }
+
+    .cs-line2 {
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        transition: top 0.3s, left 0.3s, transform 0.5s;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+    }
+
+    .cs-line3 {
+        bottom: 0;
+        transition: bottom 0.3s, opacity 0.3s;
+    }
+
+    .nav-ul-wrapper {
+        height: 50vh;
+        opacity: 0;
+        background-color: gray;
+        overflow: hidden;
+        position: absolute;
+        top: 100%;
+        left: auto;
+        right: -40px;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: top right;
+        transition: transform 0.4s, opacity 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5em;
+            padding-top: 7em;
+            width: 50vw;
+
+
+            li {
+                a {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .cs-button {
+            margin-top: 2em;
+        }
+    }
+
+}
+
+/* desktop nav */
+@media screen and (min-width: 1023px) {
+    #cs-navigation {
+        grid-template-areas: "logo nav-links";
+        grid-template-columns: 1fr 1.5fr;
+        padding: 1em 0;
+
+        .nav-ul-wrapper {
+            position: relative;
+            height: auto;
+            z-index: 1;
+            transform: none;
+            opacity: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1em;
+            background-color: inherit;
+            grid-area: nav-links;
+            top: auto;
+            padding: 0 1em;
+            background-color: #fff;
+            justify-self: end;
+
+            ul {
+                height: 25px;
+                width: auto;
+                flex-direction: row;
+                padding-top: 0;
+
+                li {
+                    a {
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .cs-button {
+                margin: 0;
+            }
+        }
+
+        .cs-toggle {
+            display: none;
+        }
+
+    }
+}
+
+/* CTA styles */
+
+/* footer styles */
