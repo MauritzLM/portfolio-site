@@ -1,10 +1,14 @@
 [
     {
         "title": "Act Matrix Tool",
-        "description": "Simple tool to create a matrix"
+        "description": "Simple tool to create a matrix. Uses tiptap editor and auth0 for authentication.",
+        "stack": "React, Express api backend, postgress db",
+        "image": "/assets/images/matrix-screenshot.webp"
     },
     {
         "title": "Task Management App",
-        "description": "Task app for Front end mentor"
+        "description": "Task app for Front end mentor",
+        "stack": "Django, postgress db, HTMX",
+        "image": "/assets/images/taskapp-screenshot.webp"
     }
 ]
