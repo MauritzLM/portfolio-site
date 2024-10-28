@@ -2,7 +2,7 @@
     {
         "title": "Task Management App",
         "description": "Task app for Front end mentor",
-        "stack": "Django, postgress db, HTMX",
+        "stack": ["Django", "PostgreSQL", "HTMX"],
         "image": "/assets/images/taskapp-screenshot.webp",
         "github": "https://github.com/MauritzLM/kanban-task-management-app",
         "url": "https://web-production-b1cb.up.railway.app/taskmanager/"
@@ -10,7 +10,7 @@
     {
         "title": "Act Matrix Tool",
         "description": "Simple tool to create a matrix. Uses tiptap editor and auth0 for authentication.",
-        "stack": "React, Express api backend, postgress db",
+        "stack": ["React", "Express", "PostgreSQL", "Auth0"],
         "image": "/assets/images/matrix-screenshot.webp",
         "github": "https://github.com/MauritzLM/act-matrix",
         "url": "https://act-matrix.vercel.app/"
@@ -18,7 +18,7 @@
     {
         "title": "Audiophile Website",
         "description": "Website for Front end mentor",
-        "stack": "React, postgress db, typescript",
+        "stack": ["React", "PostgreSQL", "typescript"],
         "image": "/assets/images/audiophile-screenshot.webp",
         "github": "https://github.com/MauritzLM/audiophile-website",
         "url": "https://audiophile-website-gamma.vercel.app/"

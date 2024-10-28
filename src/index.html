@@ -10,12 +10,14 @@ layout: layouts/base.html
 stylesheet: css/home.css
 script: '' 
 ---
+<!-- HERO SECTION -->
 <section id="hero">
    <h1>Hello! I'm Mauritz</h1>
    <p>A web developer who loves to solve problems.</p>
    <div><a href="https://github.com/MauritzLM">Github</a><a href="mailto:mauritz303@gmail.com">Email</a></div>
 </section>
 
+<!-- PROJECTS SECTION -->
 <section id="projects">
   <h2>My projects</h2>
  <ul>
@@ -32,10 +34,18 @@ script: ''
       </picture> #}
       <div class="project-image">
       </div>
-      <div>
+
+      <div class="project-details">
         <h3>{{ project.title }}</h3>
+
+        <div class="project-stack">
+        {% for tech in project.stack %}
+          <span>{{ tech }}</span>
+        {% endfor %}  
+        </div>
+
         <p>{{ project.description }}</p>
-        <p>{{ project.stack }}</p>
+
         <div class="project-links">
            <a href="{{ project.github }}">Source code</a>
            <a href="{{ project.url }}">Live site</a>
@@ -46,6 +56,7 @@ script: ''
   </ul>
 </section>
 
+<!-- RECENT POSTS -->
 <section id="articles">
 {% if collections.recent | length == 0 %}
     <h2>No current posts</h2>
@@ -59,7 +70,7 @@ script: ''
       <div class="post-details">
 
           <h3>{{ post.data.title }}</h3>
-          <p>{{ post.data.date | postDate }}</p>
+          <p class="date">{{ post.data.date | postDate }}</p>
           <p>{{ post.data.description }}</p>
 
           <a href="{{ post.url }}">Continue reading</a>
@@ -72,6 +83,7 @@ script: ''
 {% endif %}
 </section>
 
+<!-- CALL TO ACTION -->
 <section id="cta">
  <div>
    <h2>Let's Work Together!</h2>
