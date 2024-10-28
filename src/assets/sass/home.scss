@@ -31,6 +31,13 @@
             display: flex;
             flex-direction: column;
 
+            .project-details {
+                flex-grow: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
             .project-image {
                 width: 100%;
                 height: 300px;
@@ -40,17 +47,41 @@
 
             }
 
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            .project-stack {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                margin-bottom: 10px;
+
+                span {
+                    background-color: rgb(47, 67, 87);
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                    color: #f9f9f9;
+                    // width: fit-content;
+                    font-size: 13px;
+                }
+            }
+
             .project-links {
                 display: flex;
                 gap: 16px;
                 margin-top: 10px;
 
                 a {
-                    background-color: rgb(16, 23, 27);
-                    color: white;
-                    padding: 10px;
-                    border-radius: 5px;
+                    //  background-color: rgb(16, 23, 27);
+                    //  padding: 10px;
+                    //  border-radius: 5px;
+                    color: black;
+                    border-bottom: 1px solid gray;
 
+                    &:hover {
+                        border-color: transparent;
+                    }
                 }
             }
 
@@ -81,9 +112,14 @@
 
 /* Articles section */
 #articles {
+    a {
+        color: #7e7e7e;
+    }
+
     .card-container {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-auto-rows: minmax(100px, auto);
         gap: 24px;
 
         article {
@@ -93,13 +129,25 @@
             border-radius: 5px;
             border-bottom: 1px solid rgb(218, 218, 218);
 
-            p {
-                margin-top: 16px;
-            }
+            .post-details {
 
-            a {
-                margin-top: 16px;
-                display: inline-block;
+                p {
+                    margin-top: 16px;
+                    font-size: 15px;
+                }
+
+                .date {
+                    font-size: 13px;
+                    color: gray;
+
+                }
+
+                a {
+                    margin-top: 16px;
+                    display: inline-block;
+                    color: rgb(131, 131, 131);
+                    font-size: 15px;
+                }
             }
         }
     }
